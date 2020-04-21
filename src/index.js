@@ -3,9 +3,19 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import { Provider } from 'react-redux';
+import storeConfig from '../src/store/storeConfig';
+
+const store = storeConfig();
+const Redux = () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Redux />
   </React.StrictMode>,
   document.getElementById('root')
 );
