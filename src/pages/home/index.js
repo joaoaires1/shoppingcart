@@ -4,7 +4,17 @@ import { useDispatch } from 'react-redux';
 import { ADD_PRODUCT } from '../../store/actions/actionTypes';
 import { FiHome, FiShoppingCart } from "react-icons/fi";
 
-// import { Container } from './styles';
+import { 
+  NavContainer, 
+  MainContainer, 
+  DivProduct, 
+  Title, 
+  ProductContainer,
+  ImageProd,
+  PriceContent,
+  PriceText,
+  AddProduct
+} from './styles';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -13,30 +23,60 @@ export default function Home() {
     <div>
 
         <div style={{
-          width: '100%',
           borderBottom: '1px solid #eee'
         }}>
 
-          <div style={{
-            height: 50,
-            maxWidth: 900,
-            margin: '0 auto',
-            display: 'flex', 
-            flexDirection: 'row', 
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            padding: 10,
-          }}>
-            <div style={{ borderWidth: 1, borderColor: 'red' }}>
-              <FiHome size={30} />
-            </div>
-
-            <div>
+          <NavContainer>
+              <p>0</p>
               <FiShoppingCart size={30} />
-            </div>
-          </div>
+          </NavContainer>
 
         </div>
+
+        <MainContainer>
+          <Title>Produtos</Title>
+
+          <ProductContainer>
+            <DivProduct>
+              <ImageProd src={'https://i0.wp.com/mundoalegre.com.br/wp-content/uploads/2017/02/demo1_product16_208x208-1.jpg'} alt=''/>
+            
+              <PriceContent>
+                <AddProduct>
+                  Adicionar
+                </AddProduct>
+                <PriceText>
+                  R$ 50,00
+                </PriceText>
+              </PriceContent>
+            </DivProduct>
+
+            <DivProduct>
+              <ImageProd src={'https://cdn11.bigcommerce.com/s-pl27udn9i/images/stencil/500x500/products/2570/4303/9924197-lb-quartz-mustang-fr__88760.1516602155.jpg'} alt=''/>
+            
+              <PriceContent>
+                <AddProduct>
+                  Adicionar
+                </AddProduct>
+                <PriceText>
+                  R$ 120,00
+                </PriceText>
+              </PriceContent>
+            </DivProduct>
+
+            <DivProduct>
+              <ImageProd src={'https://i0.wp.com/www.mundoalegre.com.br/wp-content/uploads/2017/02/demo1_product19_208x208-1.jpg'} alt=''/>
+            
+              <PriceContent>
+                <AddProduct>
+                  Adicionar
+                </AddProduct>
+                <PriceText>
+                  R$ 140,00
+                </PriceText>
+              </PriceContent>
+            </DivProduct>
+          </ProductContainer>
+        </MainContainer>
         
     </div>
   );
