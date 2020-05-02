@@ -1,14 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import CustomNavBar from '../../components/custom_nav_bar';
 
-// import { Container } from './styles';
-
-export default function Cart() {
+export default function Cart({ history }) {
   const state = useSelector(state => state);
 
   return (
     <div>
-        <h1>Cart</h1>
+        <CustomNavBar history={history} isHome={false} />
     </div>
   );
 }

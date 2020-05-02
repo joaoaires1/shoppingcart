@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { ADD_PRODUCT } from '../../store/actions/actionTypes';
 import { FiHome, FiShoppingCart } from "react-icons/fi";
+import CustomNavBar from '../../components/custom_nav_bar';
 
 import { 
-  NavContainer, 
   MainContainer, 
   DivProduct, 
   Title, 
@@ -16,22 +16,13 @@ import {
   AddProduct
 } from './styles';
 
-export default function Home() {
+export default function Home({history}) {
   const dispatch = useDispatch();
 
   return (
     <div>
 
-        <div style={{
-          borderBottom: '1px solid #eee'
-        }}>
-
-          <NavContainer>
-              <p>0</p>
-              <FiShoppingCart size={30} />
-          </NavContainer>
-
-        </div>
+        <CustomNavBar history={history} isHome={true} />
 
         <MainContainer>
           <Title>Produtos</Title>
