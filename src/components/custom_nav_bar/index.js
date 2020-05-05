@@ -12,6 +12,10 @@ const CustomNavBar = ({ history, isHome }) => {
     const state = useSelector(state => state);
     const { cart } = state;
 
+    const cartNumItems = cart.reduce(function(prev, cur) {
+        return prev + cur.count;
+    }, 0);
+
     return (
         <div style={{
             borderBottom: '1px solid #eee'
@@ -35,7 +39,7 @@ const CustomNavBar = ({ history, isHome }) => {
                 <CartContainer onClick={ () => history.push('/cart') } >
 
                     <CountProducts>
-                        { cart.length }
+                        { cartNumItems }
                     </CountProducts>
 
                     <FiShoppingCart size={30} />
