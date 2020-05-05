@@ -44,3 +44,14 @@ export const Increment = styled.div`
     flex-direction: row;
     align-items: center;
 `;
+
+export const EmptyContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
+export const EmptyTitle = styled.h2`
+    margin-top: 30px;
+    margin-bottom: 15px;
+`;

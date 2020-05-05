@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import CustomNavBar from '../../components/custom_nav_bar';
 import { GrClose } from "react-icons/gr";
 import { FiMinus, FiPlus } from "react-icons/fi";
-import { AiOutlineDropbox } from "react-icons/ai";
+import images from '../../utils/images';
 import { ADD_PRODUCT, DECREMENT_PRODUCT, REMOVE_PRODUCT } from '../../store/actions/actionTypes';
 
 import { 
@@ -13,7 +13,9 @@ import {
   CartDetails,
   RowProducts,
   Increment,
-  Title
+  Title,
+  EmptyContainer,
+  EmptyTitle
 } from './styles';
 
 export default function Cart({ history }) {
@@ -23,6 +25,10 @@ export default function Cart({ history }) {
 
   const cartTotal = cart.reduce(function(prev, cur) {
     return prev + (cur.price * cur.count);
+  }, 0);
+
+  const cartNumItems = cart.reduce(function(prev, cur) {
+      return prev + cur.count;
   }, 0);
 
   const handleAddProduct = (item) => {
@@ -86,30 +92,45 @@ export default function Cart({ history }) {
     <div>
         <CustomNavBar history={history} isHome={false} />
 
-        <MainContainer>
-          <Title>Meu Carrinho</Title>
+        {
+            cartNumItems > 0
 
-          <CartContainer>
+          ?
 
-            <CartListProduct>
-              
-              <MapProducts />
+            <MainContainer>
+              <Title>Meu Carrinho</Title>
 
-            </CartListProduct>
+              <CartContainer>
 
-            <CartDetails>
-              <h2>Detalhes</h2>
-              
-              <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                <p>Total</p>
-                <p>R$ { cartTotal }</p>
-              </div>
-              
-            </CartDetails>
+                <CartListProduct>
+                  
+                  <MapProducts />
 
-          </CartContainer>
+                </CartListProduct>
 
-        </MainContainer>
+                <CartDetails>
+                  <h2>Detalhes</h2>
+                  
+                  <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+                    <p>Total</p>
+                    <p>R$ { cartTotal }</p>
+                  </div>
+                  
+                </CartDetails>
+
+              </CartContainer>
+
+            </MainContainer>
+
+          :
+
+            <EmptyContainer>
+              <EmptyTitle>Seu carrinho está vazio</EmptyTitle>
+              <img src={ images.cart } style={{ width: '256px' }} />
+            </EmptyContainer>
+        }
+
+
     </div>
   );
 }
