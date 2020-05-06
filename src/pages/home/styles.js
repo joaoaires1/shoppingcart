@@ -22,7 +22,8 @@ export const ProductContainer = styled.div`
     margin: 0 auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
 `;
 
 export const DivProduct = styled.div`
@@ -33,6 +34,9 @@ export const DivProduct = styled.div`
     background-color: #fff;
     padding: 10px;
     box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.40);
+    margin-top: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
 
     display: flex;
     flex-direction: column;
