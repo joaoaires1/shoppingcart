@@ -126,7 +126,7 @@ export default function Cart({ history }) {
 
             <EmptyContainer>
               <EmptyTitle>Seu carrinho está vazio</EmptyTitle>
-              <img src={ images.cart } style={{ width: '256px' }} />
+              <img src={ images.cart } style={{ width: '256px' }} alt='empty cart' />
             </EmptyContainer>
         }
 
